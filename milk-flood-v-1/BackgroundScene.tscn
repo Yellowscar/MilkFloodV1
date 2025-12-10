@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ur86wdo5wrqq"]
+
+[ext_resource type="Texture2D" uid="uid://dlbbb7uylo6fs" path="res://Yellow Resources/Milk Flood Background.jpg" id="1_xry1g"]
+[ext_resource type="Texture2D" uid="uid://c7k2qwwnfs5ef" path="res://Yellow Resources/Milk Flood Foreground.png" id="2_ouy2j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1016, 98)
+texture = ExtResource("1_xry1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, 1263)
+texture = ExtResource("2_ouy2j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1016, 564)
+zoom = Vector2(0.57, 0.57)

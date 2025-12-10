@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://3y3xrgxifxd3"]
+
+[ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/A) Drink Progress Bar Border.png" id="1_ppodn"]
+[ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
+[ext_resource type="Script" uid="uid://np66p4yeti2o" path="res://DrinkBarScript.gd" id="3_fxxjl"]
+[ext_resource type="Texture2D" uid="uid://v3r4q4aylomo" path="res://Yellow Resources/B) Drink Progress Bar Milk.png" id="4_ausb0"]
+[ext_resource type="Texture2D" uid="uid://c7beh20mso2s1" path="res://Yellow Resources/B) Drink Progress Bar Beer.png" id="5_tvyl3"]
+[ext_resource type="Texture2D" uid="uid://cro1u2w7w3i57" path="res://Yellow Resources/B) Drink Progress Bar Rootbeer.png" id="6_wh3a7"]
+[ext_resource type="Texture2D" uid="uid://bkvb6xxw63rsy" path="res://Yellow Resources/B) Drink Progress Bar Water.png" id="7_i2ayp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Node" type="Node2D" parent="CanvasLayer"]
+scale = Vector2(0.835, 0.835)
+script = ExtResource("3_fxxjl")
+
+[node name="WaterBar" type="TextureProgressBar" parent="CanvasLayer/Node"]
+unique_name_in_owner = true
+offset_left = 788.0239
+offset_top = 9.580839
+offset_right = 1373.0239
+offset_bottom = 109.58084
+value = 23.0
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("7_i2ayp")
+
+[node name="RootBeerBar" type="TextureProgressBar" parent="CanvasLayer/Node"]
+unique_name_in_owner = true
+offset_left = 788.02386
+offset_top = 9.580839
+offset_right = 1373.0239
+offset_bottom = 109.58084
+value = 41.0
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("6_wh3a7")
+
+[node name="BeerBar" type="TextureProgressBar" parent="CanvasLayer/Node"]
+unique_name_in_owner = true
+offset_left = 788.0239
+offset_top = 9.580839
+offset_right = 1373.0239
+offset_bottom = 109.58084
+value = 57.0
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("5_tvyl3")
+
+[node name="DrinkMilkBar" type="TextureProgressBar" parent="CanvasLayer/Node"]
+unique_name_in_owner = true
+offset_left = 788.0239
+offset_top = 9.580839
+offset_right = 1373.0239
+offset_bottom = 109.58084
+value = 70.0
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("4_ausb0")
+
+[node name="BestMilkBar" type="TextureProgressBar" parent="CanvasLayer/Node"]
+unique_name_in_owner = true
+offset_left = 788.0239
+offset_top = 9.580839
+offset_right = 1373.0239
+offset_bottom = 109.58084
+value = 90.0
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("2_tksw0")

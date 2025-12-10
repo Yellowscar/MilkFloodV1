@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydq6ey03qufv"]
+
+[ext_resource type="PackedScene" uid="uid://ur86wdo5wrqq" path="res://BackgroundScene.tscn" id="1_x4av3"]
+[ext_resource type="PackedScene" uid="uid://3y3xrgxifxd3" path="res://ProtoScene.tscn" id="2_rpqi1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_x4av3")]
+
+[node name="BarScene" parent="." instance=ExtResource("2_rpqi1")]
+position = Vector2(499, 294)
