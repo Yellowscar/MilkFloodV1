@@ -78,7 +78,7 @@ position = Vector2(-26, 18)
 unique_name_in_owner = true
 
 [node name="BarManager" type="Node2D" parent="CanvasLayer"]
-position = Vector2(270.00003, 24)
+position = Vector2(336, 6)
 scale = Vector2(0.5396964, 0.5396964)
 script = ExtResource("3_fxxjl")
 
@@ -90,9 +90,9 @@ texture = ExtResource("2_yxmdy")
 [node name="WaterBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = 1143.2354
-offset_top = 1.8528943
+offset_top = 18.528938
 offset_right = 1728.2354
-offset_bottom = 101.8529
+offset_bottom = 118.52894
 rounded = true
 texture_under = ExtResource("2_tvyl3")
 texture_over = ExtResource("1_ppodn")
@@ -101,9 +101,9 @@ texture_progress = ExtResource("7_i2ayp")
 [node name="RootBeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = 1143.2351
-offset_top = 1.8528943
+offset_top = 18.528938
 offset_right = 1728.2351
-offset_bottom = 101.8529
+offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("6_wh3a7")
@@ -111,9 +111,9 @@ texture_progress = ExtResource("6_wh3a7")
 [node name="BeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = 1143.2354
-offset_top = 1.8528943
+offset_top = 18.528938
 offset_right = 1728.2354
-offset_bottom = 101.8529
+offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("5_tvyl3")
@@ -121,9 +121,9 @@ texture_progress = ExtResource("5_tvyl3")
 [node name="DrinkMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = 1143.2354
-offset_top = 1.8528943
+offset_top = 18.528938
 offset_right = 1728.2354
-offset_bottom = 101.8529
+offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("4_ausb0")
@@ -131,25 +131,26 @@ texture_progress = ExtResource("4_ausb0")
 [node name="BestMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = 1143.2354
-offset_top = 1.8528943
+offset_top = 18.528938
 offset_right = 1728.2354
-offset_bottom = 101.8529
+offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("2_tksw0")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1113.589, 57.439705)
+position = Vector2(1113.5891, 74.11575)
 sprite_frames = SubResource("SpriteFrames_52856")
 
 [node name="Stimbar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 offset_left = -297.16626
-offset_top = 0.45095444
+offset_top = 17.126997
 offset_right = 177.83374
-offset_bottom = 98.45096
+offset_bottom = 115.127
 texture_under = ExtResource("9_ikp1b")
 texture_over = ExtResource("10_ftahq")
 texture_progress = ExtResource("11_0oloa")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/Stimbar"]
 position = Vector2(-15.972839, 51.430054)
@@ -159,11 +160,13 @@ animation = &"Idle"
 
 [node name="PlayerMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 offset_left = 429.8714
+offset_top = 16.676044
 offset_right = 974.8714
-offset_bottom = 102.0
+offset_bottom = 118.67604
 texture_under = ExtResource("12_gbuyx")
 texture_over = ExtResource("13_yxmdy")
 texture_progress = ExtResource("14_6bg8d")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/PlayerMilkBar"]
 position = Vector2(-16.676212, 51.881023)
