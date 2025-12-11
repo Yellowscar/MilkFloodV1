@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=30 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
 [ext_resource type="Texture2D" uid="uid://divf1874cummv" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar Grey.png" id="2_tvyl3"]
 [ext_resource type="Texture2D" uid="uid://b41iw01uy422l" path="res://Yellow Resources/Player and UI Sprites/UI Border MilkFlood.png" id="2_yxmdy"]
-[ext_resource type="Script" uid="uid://np66p4yeti2o" path="res://DrinkBarScript.gd" id="3_fxxjl"]
+[ext_resource type="Script" uid="uid://np66p4yeti2o" path="res://Scripts/DrinkBarScript.gd" id="3_fxxjl"]
 [ext_resource type="Texture2D" uid="uid://v3r4q4aylomo" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar Milk.png" id="4_ausb0"]
 [ext_resource type="Texture2D" uid="uid://c7beh20mso2s1" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar Beer.png" id="5_tvyl3"]
 [ext_resource type="Texture2D" uid="uid://cro1u2w7w3i57" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar Rootbeer.png" id="6_wh3a7"]
@@ -20,6 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://b7hwxrvb1367n" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0001.png" id="17_3xswp"]
 [ext_resource type="Texture2D" uid="uid://dkyi3ttwrmod" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0002.png" id="18_52856"]
 [ext_resource type="Texture2D" uid="uid://moith0si886w" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0003.png" id="19_qvqy8"]
+[ext_resource type="Script" uid="uid://car3xj2xfcjuu" path="res://Scripts/boob_manager.gd" id="21_8q7j2"]
+[ext_resource type="Texture2D" uid="uid://caol8q7inaejy" path="res://Yellow Resources/Player and UI Sprites/C) Tig Bitties.png" id="21_52856"]
+[ext_resource type="Texture2D" uid="uid://c4fk1d5w3ckq0" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0001.png" id="22_kk5bw"]
+[ext_resource type="Texture2D" uid="uid://dhxgcxv2ply56" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0002.png" id="23_8q7j2"]
+[ext_resource type="Texture2D" uid="uid://55fps1txntqy" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0004.png" id="24_tf888"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52856"]
 animations = [{
@@ -68,6 +73,39 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk5bw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_52856")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_kk5bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8q7j2")
+}],
+"loop": true,
+"name": &"StraightFromTap1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_kk5bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_tf888")
+}],
+"loop": true,
+"name": &"StraightFromTap2",
 "speed": 5.0
 }]
 
@@ -173,3 +211,14 @@ position = Vector2(-16.676212, 51.881023)
 sprite_frames = SubResource("SpriteFrames_xnxqh")
 animation = &"Idle"
 frame_progress = 0.25990984
+
+[node name="BoobManager" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("21_8q7j2")
+
+[node name="Combined Boob" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
+unique_name_in_owner = true
+position = Vector2(736, 879.00006)
+scale = Vector2(0.6164295, 0.6164295)
+sprite_frames = SubResource("SpriteFrames_kk5bw")
+animation = &"StraightFromTap1"
+frame_progress = 0.32893923
