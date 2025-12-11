@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=36 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -23,8 +23,12 @@
 [ext_resource type="Script" uid="uid://car3xj2xfcjuu" path="res://Scripts/boob_manager.gd" id="21_8q7j2"]
 [ext_resource type="Texture2D" uid="uid://caol8q7inaejy" path="res://Yellow Resources/Player and UI Sprites/C) Tig Bitties.png" id="21_52856"]
 [ext_resource type="Texture2D" uid="uid://c4fk1d5w3ckq0" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0001.png" id="22_kk5bw"]
+[ext_resource type="Texture2D" uid="uid://dnu7bc4n5obqr" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTap LeftTit0001.png" id="22_yik1h"]
 [ext_resource type="Texture2D" uid="uid://dhxgcxv2ply56" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0002.png" id="23_8q7j2"]
+[ext_resource type="Texture2D" uid="uid://dvc53dah1akvj" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTap LeftTit0002.png" id="23_ikhdh"]
+[ext_resource type="Texture2D" uid="uid://bxvbr208r6b82" path="res://Yellow Resources/Milk Flood Left Tit V2.png" id="24_278yp"]
 [ext_resource type="Texture2D" uid="uid://55fps1txntqy" path="res://Yellow Resources/Customer Sprites/SuperThirsty/StraightFromTapCombined0004.png" id="24_tf888"]
+[ext_resource type="Texture2D" uid="uid://t612e5xdr41a" path="res://Yellow Resources/Player and UI Sprites/Milk Flood Right Tit.png" id="27_3oxj7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52856"]
 animations = [{
@@ -76,16 +80,41 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kk5bw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yik1h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_52856")
+"texture": ExtResource("22_yik1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ikhdh")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"StraightFromTap1",
 "speed": 5.0
 }, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_278yp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikhdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_3oxj7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk5bw"]
+animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("22_kk5bw")
@@ -106,6 +135,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"StraightFromTap2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_52856")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -135,6 +172,7 @@ rounded = true
 texture_under = ExtResource("2_tvyl3")
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("7_i2ayp")
+metadata/_edit_use_anchors_ = true
 
 [node name="RootBeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
@@ -145,6 +183,7 @@ offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("6_wh3a7")
+metadata/_edit_use_anchors_ = true
 
 [node name="BeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
@@ -155,6 +194,7 @@ offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("5_tvyl3")
+metadata/_edit_use_anchors_ = true
 
 [node name="DrinkMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
@@ -165,6 +205,7 @@ offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("4_ausb0")
+metadata/_edit_use_anchors_ = true
 
 [node name="BestMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
@@ -175,6 +216,7 @@ offset_bottom = 118.52894
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("2_tksw0")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
 position = Vector2(1113.5891, 74.11575)
@@ -213,12 +255,25 @@ animation = &"Idle"
 frame_progress = 0.25990984
 
 [node name="BoobManager" type="Node2D" parent="CanvasLayer"]
+position = Vector2(695, 929)
 script = ExtResource("21_8q7j2")
+
+[node name="Left Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
+unique_name_in_owner = true
+position = Vector2(-253, -71)
+scale = Vector2(0.616, 0.616)
+sprite_frames = SubResource("SpriteFrames_yik1h")
+animation = &"StraightFromTap1"
+
+[node name="Right Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
+unique_name_in_owner = true
+position = Vector2(270, -9)
+scale = Vector2(0.616, 0.616)
+sprite_frames = SubResource("SpriteFrames_ikhdh")
 
 [node name="Combined Boob" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
-position = Vector2(736, 879.00006)
+visible = false
+position = Vector2(9, -8)
 scale = Vector2(0.6164295, 0.6164295)
 sprite_frames = SubResource("SpriteFrames_kk5bw")
-animation = &"StraightFromTap1"
-frame_progress = 0.32893923
