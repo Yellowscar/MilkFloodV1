@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=48 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -36,6 +36,9 @@
 [ext_resource type="Texture2D" uid="uid://dwy1jstct0r1r" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V20005.png" id="26_kvjk3"]
 [ext_resource type="Texture2D" uid="uid://t612e5xdr41a" path="res://Yellow Resources/Player and UI Sprites/Milk Flood Right Tit.png" id="27_3oxj7"]
 [ext_resource type="Texture2D" uid="uid://p56eomu1krv1" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V20006.png" id="27_jq24d"]
+[ext_resource type="Texture2D" uid="uid://lqkwsskerfa1" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0004.png" id="28_iwfuo"]
+[ext_resource type="Texture2D" uid="uid://bds5l6r6atqan" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0005.png" id="29_cpokc"]
+[ext_resource type="Texture2D" uid="uid://1wxa5ne0vd24" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0006.png" id="30_s0tec"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52856"]
 animations = [{
@@ -144,6 +147,34 @@ animations = [{
 }],
 "loop": true,
 "name": &"V2 Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oxvr"]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": ExtResource("28_iwfuo")
+}, {
+"duration": 0.75,
+"texture": ExtResource("29_cpokc")
+}, {
+"duration": 0.75,
+"texture": ExtResource("28_iwfuo")
+}, {
+"duration": 0.75,
+"texture": ExtResource("30_s0tec")
+}],
+"loop": true,
+"name": &"Ring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_iwfuo")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -339,6 +370,12 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-16.676212, 51.881023)
 sprite_frames = SubResource("SpriteFrames_xnxqh")
 animation = &"V2 Idle"
+
+[node name="Bell" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/PlayerMilkBar"]
+position = Vector2(201.96533, 194.55362)
+sprite_frames = SubResource("SpriteFrames_4oxvr")
+animation = &"Ring"
+frame_progress = 0.30287686
 
 [node name="BoobManager" type="Node2D" parent="CanvasLayer"]
 position = Vector2(695, 929)
