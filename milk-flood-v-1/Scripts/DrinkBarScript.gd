@@ -1,5 +1,8 @@
 extends Node
 
+#BoobManager
+@onready var BoobManager = %BoobManager
+
 #Drink Button Variables
 var IsBestMilkButtonPressed = false
 var IsWaterButtonPressed = false
@@ -29,7 +32,7 @@ var TrueWater = Water + TrueRootBeer
 
 #PlayerMilk
 @export_range(0.0, 100.0) var PlayerMilk: float = 0
-@export var BellModifier = 0
+@export var BellModifier = 1
 @onready var PlayerMilkBar = $PlayerMilkBar
 
 # Called when the node enters the scene tree for the first time.
@@ -73,9 +76,16 @@ func _process(delta: float) -> void:
 	%RootBeerBar.value = TrueRootBeer
 	%WaterBar.value = TrueWater
 	
+	if PlayerMilk > 100:
+		PlayerMilk = 100
+	if PlayerMilk < 0:
+		PlayerMilk = 0
 	
-	PlayerMilk += 0.5 * delta * BellModifier
+	PlayerMilk += 1.5 * delta * BellModifier
 	$PlayerMilkBar.value = PlayerMilk
+	
+	%BoobManager.scale.x = 1 + (PlayerMilk / 30)
+	%BoobManager.scale.y = 1 + ((PlayerMilk) / 40)
 
 
 
@@ -110,3 +120,4 @@ func _on_best_milk_button_button_up() -> void:
 
 func _on_bell_button_button_down() -> void:
 	PlayerMilk += 20
+	BellModifier += 0.10
