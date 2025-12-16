@@ -210,7 +210,6 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(-26, 18)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -359,6 +358,15 @@ sprite_frames = SubResource("SpriteFrames_4oxvr")
 animation = &"Ring"
 frame_progress = 0.30287686
 
+[node name="Bell Button" type="Button" parent="CanvasLayer/BarManager/Bell"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -87.08599
+offset_top = -64.85109
+offset_right = -79.08599
+offset_bottom = -56.85109
+scale = Vector2(21.934935, 17.940733)
+
 [node name="BoobManager" type="Node2D" parent="CanvasLayer"]
 position = Vector2(695, 929)
 script = ExtResource("21_8q7j2")
@@ -399,5 +407,6 @@ sprite_frames = SubResource("SpriteFrames_kk5bw")
 [connection signal="button_up" from="CanvasLayer/BarManager/BeerButton" to="CanvasLayer/BarManager" method="_on_beer_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BarManager/Bell/Bell Button" to="CanvasLayer/BarManager" method="_on_bell_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_up"]

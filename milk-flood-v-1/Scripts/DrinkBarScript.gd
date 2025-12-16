@@ -7,7 +7,6 @@ var IsRootBeerButtonPressed = false
 var IsBeerButtonPressed = false
 var IsDrinkMilkButtonPressed = false
 
-
 # Drink Bar Variables
 @onready var BestMilkBar = %BestMilkBar
 @onready var DrinkMilkBar = %DrinkMilkBar
@@ -28,8 +27,10 @@ var TrueRootBeer = RootBeer + TrueBeer
 var TrueWater = Water + TrueRootBeer
 
 
-#func BestMilkMilking():
-	
+#PlayerMilk
+@export_range(0.0, 100.0) var PlayerMilk: float = 0
+@export var BellModifier = 0
+@onready var PlayerMilkBar = $PlayerMilkBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,27 +45,27 @@ func _process(delta: float) -> void:
 	#var RootBeerBarValue = RootBeerBar.value
 	#var WaterBarValue =  WaterBar.value
 	
+	#handle drink buttons and BestMilk button
 	if IsWaterButtonPressed == true:
 		Water += 40*delta
-	
 	if IsRootBeerButtonPressed == true:
 		RootBeer += 40*delta
-	
 	if IsBeerButtonPressed == true:
 		Beer += 40*delta
-	
 	if IsDrinkMilkButtonPressed == true:
 		Milk += 40*delta
-	
 	if IsBestMilkButtonPressed == true:
 		BestMilk += 40*delta
+		PlayerMilk -= 15*delta
 	
+	#Texturebar offset
 	TrueBestMilk = BestMilk
 	TrueMilk = Milk + TrueBestMilk
 	TrueBeer = Beer + TrueMilk
 	TrueRootBeer = RootBeer + TrueBeer
 	TrueWater = Water + TrueRootBeer
 	
+	#Bestmilk vairable
 	
 	%BestMilkBar.value = TrueBestMilk
 	%DrinkMilkBar.value = TrueMilk
@@ -73,6 +74,8 @@ func _process(delta: float) -> void:
 	%WaterBar.value = TrueWater
 	
 	
+	PlayerMilk += 0.5 * delta * BellModifier
+	$PlayerMilkBar.value = PlayerMilk
 
 
 
@@ -103,3 +106,7 @@ func _on_best_milk_button_button_down() -> void:
 	IsBestMilkButtonPressed = true
 func _on_best_milk_button_button_up() -> void:
 	IsBestMilkButtonPressed = false
+
+
+func _on_bell_button_button_down() -> void:
+	PlayerMilk += 20
