@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 	#Water += 50*get_process_delta_time()
 	#print("button pressed...")
 
-#button signals
+#Drink button signals
 func _on_water_button_button_down() -> void:
 	IsWaterButtonPressed = true
 func _on_water_button_button_up() -> void:
@@ -98,3 +98,8 @@ func _on_drink_milk_button_button_down() -> void:
 	IsDrinkMilkButtonPressed = true
 func _on_drink_milk_button_button_up() -> void:
 	IsDrinkMilkButtonPressed = false
+#BestMilk Button, extra special
+func _on_best_milk_button_button_down() -> void:
+	IsBestMilkButtonPressed = true
+func _on_best_milk_button_button_up() -> void:
+	IsBestMilkButtonPressed = false

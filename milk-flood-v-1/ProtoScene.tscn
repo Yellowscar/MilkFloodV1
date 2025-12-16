@@ -363,6 +363,15 @@ frame_progress = 0.30287686
 position = Vector2(695, 929)
 script = ExtResource("21_8q7j2")
 
+[node name="BestMilkButton" type="Button" parent="CanvasLayer/BoobManager"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -487.0
+offset_top = -233.0
+offset_right = -479.0
+offset_bottom = -225.0
+scale = Vector2(122.78604, 55.337467)
+
 [node name="Left Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
 position = Vector2(-253, -71)
@@ -390,3 +399,5 @@ sprite_frames = SubResource("SpriteFrames_kk5bw")
 [connection signal="button_up" from="CanvasLayer/BarManager/BeerButton" to="CanvasLayer/BarManager" method="_on_beer_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_up"]
