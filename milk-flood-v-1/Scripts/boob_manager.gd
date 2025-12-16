@@ -5,7 +5,7 @@ extends Node2D
 @onready var RightTit = %"Right Tit"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	%"Left Tit".play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

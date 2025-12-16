@@ -1,5 +1,14 @@
 extends Node
 
+#Drink Button Variables
+var IsBestMilkButtonPressed = false
+var IsWaterButtonPressed = false
+var IsRootBeerButtonPressed = false
+var IsBeerButtonPressed = false
+var IsDrinkMilkButtonPressed = false
+
+
+# Drink Bar Variables
 @onready var BestMilkBar = %BestMilkBar
 @onready var DrinkMilkBar = %DrinkMilkBar
 @onready var BeerBar = %BeerBar
@@ -35,6 +44,21 @@ func _process(delta: float) -> void:
 	#var RootBeerBarValue = RootBeerBar.value
 	#var WaterBarValue =  WaterBar.value
 	
+	if IsWaterButtonPressed == true:
+		Water += 40*delta
+	
+	if IsRootBeerButtonPressed == true:
+		RootBeer += 40*delta
+	
+	if IsBeerButtonPressed == true:
+		Beer += 40*delta
+	
+	if IsDrinkMilkButtonPressed == true:
+		Milk += 40*delta
+	
+	if IsBestMilkButtonPressed == true:
+		BestMilk += 40*delta
+	
 	TrueBestMilk = BestMilk
 	TrueMilk = Milk + TrueBestMilk
 	TrueBeer = Beer + TrueMilk
@@ -49,3 +73,28 @@ func _process(delta: float) -> void:
 	%WaterBar.value = TrueWater
 	
 	
+
+
+
+
+#func _on_water_button_pressed() -> void:
+	#Water += 50*get_process_delta_time()
+	#print("button pressed...")
+
+#button signals
+func _on_water_button_button_down() -> void:
+	IsWaterButtonPressed = true
+func _on_water_button_button_up() -> void:
+	IsWaterButtonPressed = false
+func _on_root_beer_button_button_down() -> void:
+	IsRootBeerButtonPressed = true
+func _on_root_beer_button_button_up() -> void:
+	IsRootBeerButtonPressed = false
+func _on_beer_button_button_down() -> void:
+	IsBeerButtonPressed = true
+func _on_beer_button_button_up() -> void:
+	IsBeerButtonPressed = false
+func _on_drink_milk_button_button_down() -> void:
+	IsDrinkMilkButtonPressed = true
+func _on_drink_milk_button_button_up() -> void:
+	IsDrinkMilkButtonPressed = false

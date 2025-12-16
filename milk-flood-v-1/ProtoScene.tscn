@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=47 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -48,41 +48,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kvjk3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_unc4t")
-}],
-"loop": true,
-"name": &"BeerIdle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_e7b80")
-}],
-"loop": true,
-"name": &"MilkIdle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_m88vi")
-}],
-"loop": true,
-"name": &"RootBeerIdle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_2pgpe")
-}],
-"loop": true,
-"name": &"WaterIdle",
 "speed": 5.0
 }]
 
@@ -262,10 +227,11 @@ texture = ExtResource("2_yxmdy")
 
 [node name="WaterBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
-offset_left = 1143.2354
-offset_top = 18.528938
-offset_right = 1728.2354
-offset_bottom = 118.52894
+offset_left = 1143.2356
+offset_top = 3.7057905
+offset_right = 1728.2356
+offset_bottom = 103.70579
+scale = Vector2(1.1531303, 1.1697778)
 rounded = true
 texture_under = ExtResource("2_tvyl3")
 texture_over = ExtResource("1_ppodn")
@@ -274,10 +240,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RootBeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
-offset_left = 1143.2351
-offset_top = 18.528938
-offset_right = 1728.2351
-offset_bottom = 118.52894
+offset_left = 1143.2354
+offset_top = 3.7057905
+offset_right = 1728.2354
+offset_bottom = 103.70579
+scale = Vector2(1.1531303, 1.1697778)
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("6_wh3a7")
@@ -285,10 +252,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BeerBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
-offset_left = 1143.2354
-offset_top = 18.528938
-offset_right = 1728.2354
-offset_bottom = 118.52894
+offset_left = 1143.2356
+offset_top = 3.7057905
+offset_right = 1728.2356
+offset_bottom = 103.70579
+scale = Vector2(1.1531303, 1.1697778)
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("5_tvyl3")
@@ -296,10 +264,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DrinkMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
-offset_left = 1143.2354
-offset_top = 18.528938
-offset_right = 1728.2354
-offset_bottom = 118.52894
+offset_left = 1143.2356
+offset_top = 3.7057905
+offset_right = 1728.2356
+offset_bottom = 103.70579
+scale = Vector2(1.1531303, 1.1697778)
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("4_ausb0")
@@ -307,72 +276,85 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BestMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
-offset_left = 1143.2354
-offset_top = 18.528938
-offset_right = 1728.2354
-offset_bottom = 118.52894
+offset_left = 1143.2356
+offset_top = 3.7057905
+offset_right = 1728.2356
+offset_bottom = 103.70579
+scale = Vector2(1.1531303, 1.1697778)
 rounded = true
 texture_over = ExtResource("1_ppodn")
 texture_progress = ExtResource("2_tksw0")
 metadata/_edit_use_anchors_ = true
 
 [node name="MugIcon" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1113.5891, 74.11575)
+position = Vector2(1113.5891, 62.998405)
 sprite_frames = SubResource("SpriteFrames_52856")
 
-[node name="WaterButton" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1660.1926, 192.70093)
-sprite_frames = SubResource("SpriteFrames_kvjk3")
-animation = &"WaterIdle"
+[node name="WaterButton" type="TextureButton" parent="CanvasLayer/BarManager"]
+offset_left = 1584.224
+offset_top = 127.84963
+offset_right = 1689.224
+offset_bottom = 256.84964
+action_mode = 0
+texture_normal = ExtResource("14_2pgpe")
+stretch_mode = 4
 
-[node name="RootBeerBar2" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1547.1663, 192.70093)
-sprite_frames = SubResource("SpriteFrames_kvjk3")
-animation = &"RootBeerIdle"
+[node name="RootBeerButton" type="TextureButton" parent="CanvasLayer/BarManager"]
+offset_left = 1471.1976
+offset_top = 127.84963
+offset_right = 1576.1976
+offset_bottom = 256.84964
+texture_normal = ExtResource("13_m88vi")
 
-[node name="WaterButton3" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1428.581, 192.70093)
-sprite_frames = SubResource("SpriteFrames_kvjk3")
-animation = &"BeerIdle"
+[node name="BeerButton" type="TextureButton" parent="CanvasLayer/BarManager"]
+offset_left = 1352.6124
+offset_top = 127.84963
+offset_right = 1457.6124
+offset_bottom = 256.84964
+texture_normal = ExtResource("11_unc4t")
 
-[node name="WaterButton2" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
-position = Vector2(1313.7017, 190.84805)
-sprite_frames = SubResource("SpriteFrames_kvjk3")
-animation = &"MilkIdle"
+[node name="DrinkMilkButton" type="TextureButton" parent="CanvasLayer/BarManager"]
+offset_left = 1237.733
+offset_top = 125.99676
+offset_right = 1342.733
+offset_bottom = 254.99677
+texture_normal = ExtResource("12_e7b80")
 
 [node name="Stimbar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
-offset_left = -297.16626
-offset_top = 17.126997
-offset_right = 177.83374
-offset_bottom = 115.127
+offset_left = -330.51837
+offset_top = 9.71542
+offset_right = 144.48163
+offset_bottom = 107.71542
+scale = Vector2(1.1134651, 1)
 texture_under = ExtResource("9_ikp1b")
 texture_over = ExtResource("10_ftahq")
 texture_progress = ExtResource("11_0oloa")
 metadata/_edit_use_anchors_ = true
 
-[node name="HeartIcon" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/Stimbar"]
-position = Vector2(-15.972839, 51.430054)
-scale = Vector2(1.1792191, 0.9182809)
+[node name="HeartIcon" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
+position = Vector2(-346.4912, 61.145485)
+scale = Vector2(1.1792192, 0.91828096)
 sprite_frames = SubResource("SpriteFrames_qvqy8")
 animation = &"Idle"
 
 [node name="PlayerMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
-offset_left = 429.8714
-offset_top = 16.676044
-offset_right = 974.8714
-offset_bottom = 118.67604
+offset_left = 298.3158
+offset_top = 9.264469
+offset_right = 843.3158
+offset_bottom = 111.264465
+scale = Vector2(1.337758, 1.0519145)
 texture_under = ExtResource("12_gbuyx")
 texture_over = ExtResource("13_yxmdy")
 texture_progress = ExtResource("14_6bg8d")
 metadata/_edit_use_anchors_ = true
 
-[node name="CowIcon" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/PlayerMilkBar"]
-position = Vector2(-16.676212, 51.881023)
+[node name="CowIcon" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
+position = Vector2(314.99188, 59.292595)
 sprite_frames = SubResource("SpriteFrames_xnxqh")
 animation = &"V2 Idle"
 
-[node name="Bell" type="AnimatedSprite2D" parent="CanvasLayer/BarManager/PlayerMilkBar"]
-position = Vector2(201.96533, 194.55362)
+[node name="Bell" type="AnimatedSprite2D" parent="CanvasLayer/BarManager"]
+position = Vector2(631.8368, 211.22969)
 sprite_frames = SubResource("SpriteFrames_4oxvr")
 animation = &"Ring"
 frame_progress = 0.30287686
@@ -386,7 +368,6 @@ unique_name_in_owner = true
 position = Vector2(-253, -71)
 scale = Vector2(0.616, 0.616)
 sprite_frames = SubResource("SpriteFrames_yik1h")
-animation = &"StraightFromTap1"
 
 [node name="Right Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
@@ -400,3 +381,12 @@ visible = false
 position = Vector2(9, -8)
 scale = Vector2(0.6164295, 0.6164295)
 sprite_frames = SubResource("SpriteFrames_kk5bw")
+
+[connection signal="button_down" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BarManager/RootBeerButton" to="CanvasLayer/BarManager" method="_on_root_beer_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BarManager/RootBeerButton" to="CanvasLayer/BarManager" method="_on_root_beer_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BarManager/BeerButton" to="CanvasLayer/BarManager" method="_on_beer_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BarManager/BeerButton" to="CanvasLayer/BarManager" method="_on_beer_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_up"]
