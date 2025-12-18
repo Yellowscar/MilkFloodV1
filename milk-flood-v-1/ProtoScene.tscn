@@ -289,6 +289,15 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1113.5891, 62.998405)
 sprite_frames = SubResource("SpriteFrames_52856")
 
+[node name="MugButton" type="Button" parent="CanvasLayer/BarManager/MugIcon"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -51.881023
+offset_top = -59.29262
+offset_right = 64.85127
+offset_bottom = 53.7339
+
 [node name="WaterButton" type="TextureButton" parent="CanvasLayer/BarManager"]
 offset_left = 1584.224
 offset_top = 127.84963
@@ -420,6 +429,7 @@ unique_name_in_owner = true
 scale = Vector2(0.6164295, 0.6164295)
 sprite_frames = SubResource("SpriteFrames_kk5bw")
 
+[connection signal="button_down" from="CanvasLayer/BarManager/MugIcon/MugButton" to="CanvasLayer/BarManager" method="_on_mug_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/RootBeerButton" to="CanvasLayer/BarManager" method="_on_root_beer_button_button_down"]

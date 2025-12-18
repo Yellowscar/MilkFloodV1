@@ -37,7 +37,7 @@ var TrueWater = Water + TrueRootBeer
 
 #PlayerMilk
 @export_range(0.0, 100.0) var PlayerMilk: float = 0
-@export var BellModifier = 1
+@export var BellModifier: float = 1
 @onready var PlayerMilkBar = $PlayerMilkBar
 
 # Called when the node enters the scene tree for the first time.
@@ -163,3 +163,11 @@ func _on_bell_button_button_down() -> void:
 	if PlayerClimaxing == false:
 		PlayerMilk += 20
 		BellModifier += 0.10
+
+
+func _on_mug_button_button_down() -> void:
+	BestMilk = 0
+	Water = 0 
+	RootBeer = 0 
+	Beer = 0
+	Milk = 0 
