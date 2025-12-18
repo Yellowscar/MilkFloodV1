@@ -294,32 +294,44 @@ offset_left = 1584.224
 offset_top = 127.84963
 offset_right = 1689.224
 offset_bottom = 256.84964
-action_mode = 0
+mouse_filter = 1
+mouse_behavior_recursive = 2
 texture_normal = ExtResource("14_2pgpe")
 stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="RootBeerButton" type="TextureButton" parent="CanvasLayer/BarManager"]
 offset_left = 1471.1976
 offset_top = 127.84963
 offset_right = 1576.1976
 offset_bottom = 256.84964
+mouse_filter = 1
+mouse_behavior_recursive = 2
 texture_normal = ExtResource("13_m88vi")
+metadata/_edit_use_anchors_ = true
 
 [node name="BeerButton" type="TextureButton" parent="CanvasLayer/BarManager"]
 offset_left = 1352.6124
 offset_top = 127.84963
 offset_right = 1457.6124
 offset_bottom = 256.84964
+mouse_filter = 1
+mouse_behavior_recursive = 2
 texture_normal = ExtResource("11_unc4t")
+metadata/_edit_use_anchors_ = true
 
 [node name="DrinkMilkButton" type="TextureButton" parent="CanvasLayer/BarManager"]
 offset_left = 1237.733
 offset_top = 125.99676
 offset_right = 1342.733
 offset_bottom = 254.99677
+mouse_filter = 1
+mouse_behavior_recursive = 2
 texture_normal = ExtResource("12_e7b80")
+metadata/_edit_use_anchors_ = true
 
 [node name="Stimbar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
+unique_name_in_owner = true
 offset_left = -330.51837
 offset_top = 9.71542
 offset_right = 144.48163
@@ -366,38 +378,45 @@ offset_top = -64.85109
 offset_right = -79.08599
 offset_bottom = -56.85109
 scale = Vector2(21.934935, 17.940733)
+mouse_filter = 1
+mouse_behavior_recursive = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="BoobManager" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
-position = Vector2(695, 929)
+position = Vector2(695, 885.0005)
+scale = Vector2(1.0793928, 1.0793928)
 script = ExtResource("21_8q7j2")
 
 [node name="BestMilkButton" type="Button" parent="CanvasLayer/BoobManager"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -487.0
-offset_top = -233.0
+offset_top = -200.2066
 offset_right = -479.0
-offset_bottom = -225.0
+offset_bottom = -192.2066
 scale = Vector2(122.78604, 55.337467)
+mouse_filter = 1
+mouse_behavior_recursive = 2
 button_mask = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Left Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
-position = Vector2(-253, -71)
+visible = false
+position = Vector2(-264, -61)
 scale = Vector2(0.616, 0.616)
 sprite_frames = SubResource("SpriteFrames_yik1h")
 
 [node name="Right Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
-position = Vector2(270, -9)
+visible = false
+position = Vector2(262, 0)
 scale = Vector2(0.616, 0.616)
 sprite_frames = SubResource("SpriteFrames_ikhdh")
 
 [node name="Combined Boob" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
 unique_name_in_owner = true
-visible = false
-position = Vector2(9, -8)
 scale = Vector2(0.6164295, 0.6164295)
 sprite_frames = SubResource("SpriteFrames_kk5bw")
 

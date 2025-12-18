@@ -3,6 +3,11 @@ extends Node
 #BoobManager
 @onready var BoobManager = %BoobManager
 
+#Stimulation Bar, aka Stim Bar
+@onready var StimBar = %Stimbar
+var Stimulation: float = 0
+var PlayerClimaxing: bool = false
+
 #Drink Button Variables
 var IsBestMilkButtonPressed = false
 var IsWaterButtonPressed = false
@@ -49,17 +54,32 @@ func _process(delta: float) -> void:
 	#var WaterBarValue =  WaterBar.value
 	
 	#handle drink buttons and BestMilk button
-	if IsWaterButtonPressed == true:
+	if IsWaterButtonPressed == true and PlayerClimaxing == false: 
 		Water += 40*delta
-	if IsRootBeerButtonPressed == true:
+	if IsRootBeerButtonPressed == true and PlayerClimaxing == false:
 		RootBeer += 40*delta
-	if IsBeerButtonPressed == true:
+	if IsBeerButtonPressed == true and PlayerClimaxing == false:
 		Beer += 40*delta
-	if IsDrinkMilkButtonPressed == true:
+	if IsDrinkMilkButtonPressed == true and PlayerClimaxing == false:
 		Milk += 40*delta
-	if IsBestMilkButtonPressed == true:
-		BestMilk += 40*delta
+	
+	#handles milking
+	if IsBestMilkButtonPressed == true and PlayerClimaxing == false:
+		BestMilk += 40 * delta
+		Stimulation += 25 * delta
 		PlayerMilk -= 15*delta
+	
+	#handles stimulation
+	%Stimbar.value = Stimulation
+	
+	if Stimulation > 99:
+		PlayerClimaxing = true
+	
+	if Stimulation < 1:
+		PlayerClimaxing = false
+	
+	if PlayerClimaxing == true:
+		Stimulation -= 50 * delta
 	
 	#Texturebar offset
 	TrueBestMilk = BestMilk
@@ -76,16 +96,37 @@ func _process(delta: float) -> void:
 	%RootBeerBar.value = TrueRootBeer
 	%WaterBar.value = TrueWater
 	
+	#Variable Limits
 	if PlayerMilk > 100:
 		PlayerMilk = 100
 	if PlayerMilk < 0:
 		PlayerMilk = 0
+	if Stimulation > 100:
+		Stimulation = 100
+	if Stimulation < 0:
+		Stimulation = 0
+	
+	var BoobStage = 1
+	
+#	if PlayerMilk < 31:
+#		BoobStage = 1
+#	
+#	if PlayerMilk > 30:
+#		BoobStage = 1.2
+#	
+#	if PlayerMilk > 60:
+#		BoobStage = 1.4
+	
+#	if PlayerMilk > 90:
+#		BoobStage = 1.6
+	
+	
 	
 	PlayerMilk += 1.5 * delta * BellModifier
 	$PlayerMilkBar.value = PlayerMilk
 	
-	%BoobManager.scale.x = 1 + (PlayerMilk / 30)
-	%BoobManager.scale.y = 1 + ((PlayerMilk) / 40)
+	%BoobManager.scale.x = BoobStage + (PlayerMilk / 30)
+	%BoobManager.scale.y = BoobStage + ((PlayerMilk) / 40)
 
 
 
@@ -119,5 +160,6 @@ func _on_best_milk_button_button_up() -> void:
 
 
 func _on_bell_button_button_down() -> void:
-	PlayerMilk += 20
-	BellModifier += 0.10
+	if PlayerClimaxing == false:
+		PlayerMilk += 20
+		BellModifier += 0.10
