@@ -71,6 +71,7 @@ func _process(delta: float) -> void:
 	
 	#handles stimulation
 	%Stimbar.value = Stimulation
+	Stimulation -= 5 * delta
 	
 	if Stimulation > 99:
 		PlayerClimaxing = true
