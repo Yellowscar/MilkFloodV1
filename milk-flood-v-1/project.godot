@@ -15,12 +15,21 @@ run/main_scene="uid://cydq6ey03qufv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://bwhmu8wdfvhmt"
 
+[autoload]
+
+DialogueManager="*res://addons/godot_dialogue_manager-main/addons/dialogue_manager/dialogue_manager.gd"
+
 [display]
 
 window/size/viewport_width=1400
 window/size/viewport_height=825
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_dialogue_manager-main/addons/dialogue_manager/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

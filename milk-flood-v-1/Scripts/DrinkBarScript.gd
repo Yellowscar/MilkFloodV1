@@ -1,5 +1,8 @@
 extends Node
 
+#ProtoText
+@onready var ProtoText = %ProtoText
+
 #BoobManager
 @onready var BoobManager = %BoobManager
 
@@ -102,10 +105,36 @@ func _process(delta: float) -> void:
 		PlayerMilk = 100
 	if PlayerMilk < 0:
 		PlayerMilk = 0
+
 	if Stimulation > 100:
 		Stimulation = 100
 	if Stimulation < 0:
 		Stimulation = 0
+
+	if BestMilk > 100:
+		BestMilk = 100
+	if BestMilk < 0:
+		BestMilk = 0
+
+	if Milk > 100:
+		Milk = 100
+	if Milk < 0:
+		Milk = 0
+
+	if Beer > 100:
+		Beer = 100
+	if Beer < 0:
+		Beer = 0
+
+	if RootBeer > 100:
+		RootBeer = 100
+	if RootBeer < 0:
+		RootBeer = 0
+
+	if Water > 100:
+		Water = 100
+	if Water < 0:
+		Water = 0
 	
 	var BoobStage = 1
 	
@@ -121,13 +150,20 @@ func _process(delta: float) -> void:
 #	if PlayerMilk > 90:
 #		BoobStage = 1.6
 	
-	
-	
 	PlayerMilk += 1.5 * delta * BellModifier
 	$PlayerMilkBar.value = PlayerMilk
 	
 	%BoobManager.scale.x = BoobStage + (PlayerMilk / 30)
 	%BoobManager.scale.y = BoobStage + ((PlayerMilk) / 40)
+	
+	# Handle prototext
+	ProtoText.text = "Drinks; 
+	BestMilk " + str(int(BestMilk)) + ", Milk " + str(int(Milk)) + ", Beer" + str(int(Beer)) + ", RootBeer " + str(int(RootBeer)) + ", Water" + str(int(Water)) + "                 
+	
+	Order; 
+	BestMilk " + ", Milk " + ", Beer" + ", Rootbeer" + "
+	
+	Successful; " + "Failed; "
 
 
 

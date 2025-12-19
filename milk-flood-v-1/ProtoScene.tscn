@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=49 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://lqkwsskerfa1" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0004.png" id="28_iwfuo"]
 [ext_resource type="Texture2D" uid="uid://bds5l6r6atqan" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0005.png" id="29_cpokc"]
 [ext_resource type="Texture2D" uid="uid://1wxa5ne0vd24" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0006.png" id="30_s0tec"]
+[ext_resource type="FontFile" uid="uid://cohju4btam2y8" path="res://Yellow Resources/SkaredYellow2-Regular.ttf" id="40_cpokc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52856"]
 animations = [{
@@ -208,6 +209,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0tec"]
+font = ExtResource("40_cpokc")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -407,7 +412,7 @@ offset_bottom = -192.2066
 scale = Vector2(122.78604, 55.337467)
 mouse_filter = 1
 mouse_behavior_recursive = 2
-button_mask = 2
+button_mask = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Left Tit" type="AnimatedSprite2D" parent="CanvasLayer/BoobManager"]
@@ -428,6 +433,17 @@ sprite_frames = SubResource("SpriteFrames_ikhdh")
 unique_name_in_owner = true
 scale = Vector2(0.6164295, 0.6164295)
 sprite_frames = SubResource("SpriteFrames_kk5bw")
+
+[node name="TextManager" type="Node2D" parent="CanvasLayer"]
+
+[node name="ProtoText" type="Label" parent="CanvasLayer/TextManager"]
+unique_name_in_owner = true
+offset_left = 1012.0
+offset_top = 162.0
+offset_right = 1327.0
+offset_bottom = 339.0
+text = "Testing, testing..."
+label_settings = SubResource("LabelSettings_s0tec")
 
 [connection signal="button_down" from="CanvasLayer/BarManager/MugIcon/MugButton" to="CanvasLayer/BarManager" method="_on_mug_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_down"]
