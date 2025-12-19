@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=50 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cdhu866mc7eku" path="res://Yellow Resources/Bar Sprites/Milk Flood PlayerMilkBar Border.png" id="13_yxmdy"]
 [ext_resource type="Texture2D" uid="uid://btplrpb2xtykv" path="res://Yellow Resources/Player and UI Sprites/C) Water Button.png" id="14_2pgpe"]
 [ext_resource type="Texture2D" uid="uid://r07x8hwtns7c" path="res://Yellow Resources/Bar Sprites/Milk Flood PlayerMilkBar Milk.png" id="14_6bg8d"]
+[ext_resource type="Texture2D" uid="uid://b82bt2ebcwl1y" path="res://Yellow Resources/Player and UI Sprites/C) Drink It Button.png" id="15_s0tec"]
 [ext_resource type="Texture2D" uid="uid://b7hwxrvb1367n" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0001.png" id="17_3xswp"]
 [ext_resource type="Texture2D" uid="uid://dkyi3ttwrmod" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0002.png" id="18_52856"]
 [ext_resource type="Texture2D" uid="uid://moith0si886w" path="res://Yellow Resources/Player and UI Sprites/Cow Icon0003.png" id="19_qvqy8"]
@@ -344,6 +345,18 @@ mouse_behavior_recursive = 2
 texture_normal = ExtResource("12_e7b80")
 metadata/_edit_use_anchors_ = true
 
+[node name="DrinkItButton" type="TextureButton" parent="CanvasLayer/BarManager"]
+unique_name_in_owner = true
+offset_left = 1697.2502
+offset_top = 127.84964
+offset_right = 1802.2502
+offset_bottom = 256.84967
+mouse_filter = 1
+mouse_behavior_recursive = 2
+texture_normal = ExtResource("15_s0tec")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="Stimbar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 unique_name_in_owner = true
 offset_left = -330.51837
@@ -363,11 +376,11 @@ sprite_frames = SubResource("SpriteFrames_qvqy8")
 animation = &"Idle"
 
 [node name="PlayerMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
-offset_left = 298.3158
-offset_top = 9.264469
-offset_right = 843.3158
-offset_bottom = 111.264465
-scale = Vector2(1.337758, 1.0519145)
+offset_left = 344.63782
+offset_top = 12.970264
+offset_right = 889.6378
+offset_bottom = 114.97026
+scale = Vector2(1.241121, 1.0519145)
 texture_under = ExtResource("12_gbuyx")
 texture_over = ExtResource("13_yxmdy")
 texture_progress = ExtResource("14_6bg8d")
@@ -439,11 +452,56 @@ sprite_frames = SubResource("SpriteFrames_kk5bw")
 [node name="ProtoText" type="Label" parent="CanvasLayer/TextManager"]
 unique_name_in_owner = true
 offset_left = 1012.0
-offset_top = 162.0
+offset_top = 199.0
 offset_right = 1327.0
-offset_bottom = 339.0
+offset_bottom = 376.0
 text = "Testing, testing..."
 label_settings = SubResource("LabelSettings_s0tec")
+
+[node name="OrderWaterBar" type="TextureProgressBar" parent="CanvasLayer/TextManager"]
+unique_name_in_owner = true
+offset_left = 957.00006
+offset_top = 157.00002
+offset_right = 1542.0
+offset_bottom = 257.0
+scale = Vector2(0.60982376, 0.37945798)
+rounded = true
+texture_under = ExtResource("2_tvyl3")
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("7_i2ayp")
+
+[node name="OrderRootBeerBar" type="TextureProgressBar" parent="CanvasLayer/TextManager"]
+unique_name_in_owner = true
+offset_left = 957.0
+offset_top = 157.00003
+offset_right = 1542.0
+offset_bottom = 257.00003
+scale = Vector2(0.60982406, 0.37945798)
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("6_wh3a7")
+
+[node name="OrderBeerBar" type="TextureProgressBar" parent="CanvasLayer/TextManager"]
+unique_name_in_owner = true
+offset_left = 957.00006
+offset_top = 157.00002
+offset_right = 1542.0
+offset_bottom = 257.0
+scale = Vector2(0.60982376, 0.37945798)
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("5_tvyl3")
+
+[node name="OrderDrinkMilkBar" type="TextureProgressBar" parent="CanvasLayer/TextManager"]
+unique_name_in_owner = true
+offset_left = 957.00006
+offset_top = 157.00002
+offset_right = 1542.0
+offset_bottom = 257.0
+scale = Vector2(0.60982376, 0.37945798)
+rounded = true
+texture_over = ExtResource("1_ppodn")
+texture_progress = ExtResource("4_ausb0")
 
 [connection signal="button_down" from="CanvasLayer/BarManager/MugIcon/MugButton" to="CanvasLayer/BarManager" method="_on_mug_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BarManager/WaterButton" to="CanvasLayer/BarManager" method="_on_water_button_button_down"]
@@ -454,6 +512,7 @@ label_settings = SubResource("LabelSettings_s0tec")
 [connection signal="button_up" from="CanvasLayer/BarManager/BeerButton" to="CanvasLayer/BarManager" method="_on_beer_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/BarManager/DrinkItButton" to="CanvasLayer/BarManager" method="_on_drink_it_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BarManager/Bell/Bell Button" to="CanvasLayer/BarManager" method="_on_bell_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_up"]

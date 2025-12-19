@@ -38,6 +38,45 @@ var TrueRootBeer = RootBeer + TrueBeer
 var TrueWater = Water + TrueRootBeer
 
 
+#Drink Ordering variables
+var OrderLeeway
+
+var OrderMilk
+var OrderBeer
+var OrderRootBeer
+var OrderWater
+
+var TrueOrderMilk
+var TrueOrderBeer
+var TrueOrderRootBeer
+var TrueOrderWater
+
+var OrderSize = 100
+
+
+# calling in the orderbar nodes
+@onready var OrderWaterBar = %OrderWaterBar
+@onready var OrderRootBeerBar = %OrderRootBeerBar 
+@onready var OrderBeerBar = %OrderBeerBar 
+@onready var OrderMilkBar = %OrderDrinkMilkBar
+
+
+var OrderBarMilk
+var OrderBarBeer
+var OrderBarRootBeer
+var OrderBarWater
+
+
+#Order success and failure count
+var PlayerSuccess = 0
+var PlayerFailure = 0
+
+var IsMilkRight = false
+var IsWaterRight = false
+var IsRootBeerRight = false
+var IsBeerRight = false
+
+
 #PlayerMilk
 @export_range(0.0, 100.0) var PlayerMilk: float = 0
 @export var BellModifier: float = 1
@@ -45,7 +84,20 @@ var TrueWater = Water + TrueRootBeer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	OrderLeeway = 8
+	
+	OrderMilk = randf_range(0, 100) 
+	OrderBeer = randf_range(0, 100)
+	OrderRootBeer = randf_range(0, 100)
+	OrderWater = randf_range(0, 100)
+	
+	var OrderSum = (OrderMilk + OrderBeer + OrderRootBeer + OrderWater)
+	
+	TrueOrderMilk = OrderMilk / OrderSum * OrderSize 
+	TrueOrderBeer = OrderBeer / OrderSum * OrderSize
+	TrueOrderRootBeer = OrderRootBeer / OrderSum * OrderSize
+	TrueOrderWater =  OrderWater / OrderSum * OrderSize
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,6 +123,7 @@ func _process(delta: float) -> void:
 		BestMilk += 40 * delta
 		Stimulation += 25 * delta
 		PlayerMilk -= 15*delta
+		OrderLeeway += 20*delta
 	
 	#handles stimulation
 	%Stimbar.value = Stimulation
@@ -92,8 +145,17 @@ func _process(delta: float) -> void:
 	TrueRootBeer = RootBeer + TrueBeer
 	TrueWater = Water + TrueRootBeer
 	
-	#Bestmilk vairable
+	OrderBarMilk = TrueOrderMilk
+	OrderBarBeer = TrueOrderBeer + OrderBarMilk
+	OrderBarRootBeer = TrueOrderRootBeer + OrderBarBeer
+	OrderBarWater = TrueOrderWater + OrderBarRootBeer
 	
+	%OrderWaterBar.value = OrderBarWater
+	%OrderRootBeerBar.value = OrderBarRootBeer
+	%OrderBeerBar.value = OrderBarBeer
+	%OrderDrinkMilkBar.value = OrderBarMilk
+	
+	#Bestmilk vairable
 	%BestMilkBar.value = TrueBestMilk
 	%DrinkMilkBar.value = TrueMilk
 	%BeerBar.value = TrueBeer
@@ -161,9 +223,10 @@ func _process(delta: float) -> void:
 	BestMilk " + str(int(BestMilk)) + ", Milk " + str(int(Milk)) + ", Beer" + str(int(Beer)) + ", RootBeer " + str(int(RootBeer)) + ", Water" + str(int(Water)) + "                 
 	
 	Order; 
-	BestMilk " + ", Milk " + ", Beer" + ", Rootbeer" + "
+	Milk " + str(int(TrueOrderMilk)) + ", Beer " + str(int(TrueOrderBeer)) + ", Rootbeer " + str(int(TrueOrderRootBeer)) + ", Water " + str(int(TrueOrderWater)) + "
 	
-	Successful; " + "Failed; "
+	Success; " + str(PlayerSuccess) + "
+	Failure; " + str(PlayerFailure)
 
 
 
@@ -203,8 +266,52 @@ func _on_bell_button_button_down() -> void:
 
 
 func _on_mug_button_button_down() -> void:
-	BestMilk = 0
-	Water = 0 
-	RootBeer = 0 
-	Beer = 0
-	Milk = 0 
+	if PlayerClimaxing == false:
+		if Water > TrueOrderWater - OrderLeeway and Water < TrueOrderWater + OrderLeeway:
+			IsWaterRight = true
+		
+		if RootBeer > TrueOrderRootBeer - OrderLeeway and RootBeer < TrueOrderRootBeer + OrderLeeway:
+			IsRootBeerRight = true
+		
+		if Beer > TrueOrderBeer - OrderLeeway and Beer < TrueOrderBeer + OrderLeeway:
+			IsBeerRight = true
+		
+		if Milk > TrueOrderMilk - OrderLeeway and Milk < TrueOrderMilk + OrderLeeway:
+			IsMilkRight = true
+		
+		
+		
+		if IsWaterRight == true and IsRootBeerRight == true and IsBeerRight == true and IsMilkRight == true:
+			PlayerSuccess += 1
+		else: 
+			PlayerFailure += 1
+		
+		BestMilk = 0
+		Water = 0 
+		RootBeer = 0 
+		Beer = 0
+		Milk = 0 
+		
+		
+		
+		OrderMilk = randf_range(0, 100) 
+		OrderBeer = randf_range(0, 100)
+		OrderRootBeer = randf_range(0, 100)
+		OrderWater = randf_range(0, 100)
+		
+		var OrderSum = (OrderMilk + OrderBeer + OrderRootBeer + OrderWater)
+		
+		TrueOrderMilk = OrderMilk / OrderSum * OrderSize 
+		TrueOrderBeer = OrderBeer / OrderSum * OrderSize
+		TrueOrderRootBeer = OrderRootBeer / OrderSum * OrderSize
+		TrueOrderWater =  OrderWater / OrderSum * OrderSize
+
+
+func _on_drink_it_button_button_down() -> void:
+	if PlayerClimaxing == false:
+		BestMilk = 0
+		Water = 0 
+		RootBeer = 0 
+		Beer = 0
+		Milk = 0 
+	
