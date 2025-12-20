@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://3y3xrgxifxd3"]
+[gd_scene load_steps=58 format=3 uid="uid://3y3xrgxifxd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgqr8n5xhvhwl" path="res://Yellow Resources/Bar Sprites/A) Drink Progress Bar Border.png" id="1_ppodn"]
 [ext_resource type="Texture2D" uid="uid://qtuur1tuwy4n" path="res://Yellow Resources/Bar Sprites/B) Drink Progress Bar BestMilk.png" id="2_tksw0"]
@@ -39,8 +39,151 @@
 [ext_resource type="Texture2D" uid="uid://p56eomu1krv1" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V20006.png" id="27_jq24d"]
 [ext_resource type="Texture2D" uid="uid://lqkwsskerfa1" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0004.png" id="28_iwfuo"]
 [ext_resource type="Texture2D" uid="uid://bds5l6r6atqan" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0005.png" id="29_cpokc"]
+[ext_resource type="Texture2D" uid="uid://cl10ipsvwtj61" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V2 Stun 1.png" id="29_o714l"]
+[ext_resource type="Texture2D" uid="uid://bi86nja685u0u" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V2 Stun 2.png" id="30_ayg4k"]
 [ext_resource type="Texture2D" uid="uid://1wxa5ne0vd24" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0006.png" id="30_s0tec"]
 [ext_resource type="FontFile" uid="uid://cohju4btam2y8" path="res://Yellow Resources/SkaredYellow2-Regular.ttf" id="40_cpokc"]
+
+[sub_resource type="Animation" id="Animation_o714l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(314.99188, 59.292595)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"V2 Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bell:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Ring"]
+}
+
+[sub_resource type="Animation" id="Animation_ayg4k"]
+resource_name = "TransformIdle"
+length = 0.3
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(314.99188, 59.292595), Vector2(314.99188, 35.20498), Vector2(314.99188, 59.292595)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"V2 Stun 1", &"V2 Stun 2", &"V2 Stun 1"]
+}
+
+[sub_resource type="Animation" id="Animation_t1xqq"]
+resource_name = "Cow Icon Idle"
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"V2 Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_qrjjf"]
+resource_name = "Bell Icon Ring"
+length = 0.56
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Bell:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Ring", &"default"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.55),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"StopThatRinging"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gbkgx"]
+resource_name = "Bell Icon Idle"
+length = 0.1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Bell:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrjjf"]
+_data = {
+&"Bell Icon Idle": SubResource("Animation_gbkgx"),
+&"Bell Icon Ring": SubResource("Animation_qrjjf"),
+&"Cow Icon Bounce": SubResource("Animation_ayg4k"),
+&"Cow Icon Idle": SubResource("Animation_t1xqq"),
+&"RESET": SubResource("Animation_o714l")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52856"]
 animations = [{
@@ -115,21 +258,37 @@ animations = [{
 "loop": true,
 "name": &"V2 Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_o714l")
+}],
+"loop": true,
+"name": &"V2 Stun 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("30_ayg4k")
+}],
+"loop": true,
+"name": &"V2 Stun 2",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4oxvr"]
 animations = [{
 "frames": [{
-"duration": 0.75,
+"duration": 0.4,
 "texture": ExtResource("28_iwfuo")
 }, {
-"duration": 0.75,
+"duration": 0.4,
 "texture": ExtResource("29_cpokc")
 }, {
-"duration": 0.75,
+"duration": 0.4,
 "texture": ExtResource("28_iwfuo")
 }, {
-"duration": 0.75,
+"duration": 0.4,
 "texture": ExtResource("30_s0tec")
 }],
 "loop": true,
@@ -220,6 +379,13 @@ font_color = Color(0, 0, 0, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
+[node name="ProtoScene Animation Player" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+root_node = NodePath("../BarManager/CowIcon")
+libraries = {
+&"": SubResource("AnimationLibrary_qrjjf")
+}
+
 [node name="BarManager" type="Node2D" parent="CanvasLayer"]
 position = Vector2(336, 6)
 scale = Vector2(0.5396964, 0.5396964)
@@ -303,6 +469,7 @@ offset_left = -51.881023
 offset_top = -59.29262
 offset_right = 64.85127
 offset_bottom = 53.7339
+metadata/_edit_use_anchors_ = true
 
 [node name="WaterButton" type="TextureButton" parent="CanvasLayer/BarManager"]
 offset_left = 1584.224
@@ -375,6 +542,15 @@ scale = Vector2(1.1792192, 0.91828096)
 sprite_frames = SubResource("SpriteFrames_qvqy8")
 animation = &"Idle"
 
+[node name="HeartButton" type="Button" parent="CanvasLayer/BarManager/HeartIcon"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 57.498505
+offset_top = 52.462418
+offset_right = 65.498505
+offset_bottom = 60.462418
+scale = Vector2(-14.920802, -14.490578)
+
 [node name="PlayerMilkBar" type="TextureProgressBar" parent="CanvasLayer/BarManager"]
 offset_left = 344.63782
 offset_top = 12.970264
@@ -395,7 +571,7 @@ animation = &"V2 Idle"
 position = Vector2(631.8368, 211.22969)
 sprite_frames = SubResource("SpriteFrames_4oxvr")
 animation = &"Ring"
-frame_progress = 0.30287686
+autoplay = "Ring"
 
 [node name="Bell Button" type="Button" parent="CanvasLayer/BarManager/Bell"]
 modulate = Color(1, 1, 1, 0)
@@ -513,6 +689,8 @@ texture_progress = ExtResource("4_ausb0")
 [connection signal="button_down" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BarManager/DrinkMilkButton" to="CanvasLayer/BarManager" method="_on_drink_milk_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/DrinkItButton" to="CanvasLayer/BarManager" method="_on_drink_it_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/BarManager/HeartIcon/HeartButton" to="CanvasLayer/BarManager" method="_on_heart_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/BarManager/HeartIcon/HeartButton" to="CanvasLayer/BarManager" method="_on_heart_button_button_up"]
 [connection signal="button_down" from="CanvasLayer/BarManager/Bell/Bell Button" to="CanvasLayer/BarManager" method="_on_bell_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/BoobManager/BestMilkButton" to="CanvasLayer/BarManager" method="_on_best_milk_button_button_up"]

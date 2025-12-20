@@ -1,5 +1,7 @@
 extends Node
 
+@onready var AnimPlayer = %"ProtoScene Animation Player"
+
 #ProtoText
 @onready var ProtoText = %ProtoText
 
@@ -10,6 +12,9 @@ extends Node
 @onready var StimBar = %Stimbar
 var Stimulation: float = 0
 var PlayerClimaxing: bool = false
+
+var PlayerStimulating = false
+var StimulationSensitivity = 1
 
 #Drink Button Variables
 var IsBestMilkButtonPressed = false
@@ -82,8 +87,12 @@ var IsBeerRight = false
 @export var BellModifier: float = 1
 @onready var PlayerMilkBar = $PlayerMilkBar
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	%"ProtoScene Animation Player".play("Bell Icon Ring")
+	
+	
 	OrderLeeway = 8
 	
 	OrderMilk = randf_range(0, 100) 
@@ -98,6 +107,8 @@ func _ready() -> void:
 	TrueOrderRootBeer = OrderRootBeer / OrderSum * OrderSize
 	TrueOrderWater =  OrderWater / OrderSum * OrderSize
 	
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -121,22 +132,34 @@ func _process(delta: float) -> void:
 	#handles milking
 	if IsBestMilkButtonPressed == true and PlayerClimaxing == false:
 		BestMilk += 40 * delta
-		Stimulation += 25 * delta
+		Stimulation += 25 * delta * StimulationSensitivity
 		PlayerMilk -= 15*delta
 		OrderLeeway += 20*delta
 	
-	#handles stimulation
+	#handle stimulation and handle climax
 	%Stimbar.value = Stimulation
+
+	if PlayerStimulating == true and PlayerClimaxing == false:
+		Stimulation += 60 * delta * StimulationSensitivity
+
 	Stimulation -= 5 * delta
+
 	
 	if Stimulation > 99:
 		PlayerClimaxing = true
+		%"ProtoScene Animation Player".play("Cow Icon Bounce")
 	
-	if Stimulation < 1:
+	if Stimulation < 1 and PlayerClimaxing == true:
 		PlayerClimaxing = false
+		%"ProtoScene Animation Player".play("Cow Icon Idle")
 	
 	if PlayerClimaxing == true:
 		Stimulation -= 50 * delta
+	
+	
+
+	
+	
 	
 	#Texturebar offset
 	TrueBestMilk = BestMilk
@@ -258,11 +281,15 @@ func _on_best_milk_button_button_down() -> void:
 func _on_best_milk_button_button_up() -> void:
 	IsBestMilkButtonPressed = false
 
-
+#Bell Icon functions
 func _on_bell_button_button_down() -> void:
 	if PlayerClimaxing == false:
 		PlayerMilk += 20
 		BellModifier += 0.10
+		%"ProtoScene Animation Player".play("Bell Icon Ring")
+
+func StopThatRinging() -> void:
+	%"ProtoScene Animation Player".play("Bell Icon idle")
 
 
 func _on_mug_button_button_down() -> void:
@@ -315,3 +342,10 @@ func _on_drink_it_button_button_down() -> void:
 		Beer = 0
 		Milk = 0 
 	
+
+#heartbutton, for stimulation
+func _on_heart_button_button_down() -> void:
+	PlayerStimulating = true
+
+func _on_heart_button_button_up() -> void:
+	PlayerStimulating = false 
