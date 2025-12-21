@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ur86wdo5wrqq" path="res://BackgroundScene.tscn" id="1_x4av3"]
 [ext_resource type="PackedScene" uid="uid://3y3xrgxifxd3" path="res://ProtoScene.tscn" id="2_rpqi1"]
-[ext_resource type="PackedScene" uid="uid://dhh4ksx8qqxx4" path="res://CustomerDummy.tscn" id="3_uxrcv"]
+[ext_resource type="Script" uid="uid://d3tq7mdanua87" path="res://customer_spawn_point.gd" id="4_a814b"]
 [ext_resource type="PackedScene" uid="uid://bai3vq18nruby" path="res://ForeGround.tscn" id="4_rf2cd"]
 
 [node name="Node2D" type="Node2D"]
@@ -12,7 +12,9 @@ position = Vector2(499, 294)
 
 [node name="BackGround" parent="." instance=ExtResource("1_x4av3")]
 
-[node name="Dummy" parent="." instance=ExtResource("3_uxrcv")]
-position = Vector2(-133, 30)
+[node name="CustomerSpawnPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-512, 365)
+script = ExtResource("4_a814b")
 
 [node name="ForGround" parent="." instance=ExtResource("4_rf2cd")]

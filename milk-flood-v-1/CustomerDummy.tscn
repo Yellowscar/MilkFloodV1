@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhh4ksx8qqxx4"]
+[gd_scene load_steps=9 format=3 uid="uid://dhh4ksx8qqxx4"]
 
+[ext_resource type="Script" uid="uid://xq7um0ikw1qh" path="res://customer_dummy.gd" id="1_k47o6"]
 [ext_resource type="Texture2D" uid="uid://dwwa04yb26plo" path="res://Yellow Resources/Customer Sprites/MrDummySprite Milkflood.png" id="1_o0dwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k47o6"]
@@ -13,9 +14,154 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_o0dwn"]
+resource_name = "DummyIdle"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3),
+"points": PackedFloat32Array(1407, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_k47o6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3hjmx"]
+resource_name = "DummyEnter"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(-1136, -0.25, 0, 0.25, 0, 1407, -6.325543e-05, -284, 6.325543e-05, 284),
+"times": PackedFloat32Array(0, 0.6330803)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -6.325543e-05, 0, 6.325543e-05, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6330803, 0.6333333)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.73333335, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"OneLastChange"
+}, {
+"args": [],
+"method": &"DummyJustEntered"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3arvv"]
+resource_name = "DummyExit"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1407, -6.325543e-05, -284, 6.325543e-05, 284, 5793, -0.2425, -1448.25, 0.2425, 1448.25),
+"times": PackedFloat32Array(0, 0.73333335)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.2425, 0, 0.2425, 0),
+"times": PackedFloat32Array(0, 0.73333335)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.96666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3arvv"]
+_data = {
+&"DummyEnter": SubResource("Animation_3hjmx"),
+&"DummyExit": SubResource("Animation_3arvv"),
+&"DummyIdle": SubResource("Animation_o0dwn"),
+&"RESET": SubResource("Animation_k47o6")
+}
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_k47o6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(100, 659)
 scale = Vector2(0.8904234, 0.8904234)
 sprite_frames = SubResource("SpriteFrames_k47o6")
+
+[node name="DummyAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_3arvv")
+}

@@ -44,43 +44,52 @@
 [ext_resource type="Texture2D" uid="uid://1wxa5ne0vd24" path="res://Yellow Resources/Player and UI Sprites/Bell Icon0006.png" id="30_s0tec"]
 [ext_resource type="FontFile" uid="uid://cohju4btam2y8" path="res://Yellow Resources/SkaredYellow2-Regular.ttf" id="40_cpokc"]
 
-[sub_resource type="Animation" id="Animation_o714l"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_gbkgx"]
+resource_name = "Bell Icon Idle"
+length = 0.1
+step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../Bell:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(314.99188, 59.292595)]
+"update": 1,
+"values": [&"default"]
 }
-tracks/1/type = "value"
+
+[sub_resource type="Animation" id="Animation_qrjjf"]
+resource_name = "Bell Icon Ring"
+length = 0.56
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Bell:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Ring", &"default"]
+}
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.55),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"V2 Idle"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Bell:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Ring"]
+"values": [{
+"args": [],
+"method": &"StopThatRinging"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ayg4k"]
@@ -128,52 +137,43 @@ tracks/0/keys = {
 "values": [&"V2 Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_qrjjf"]
-resource_name = "Bell Icon Ring"
-length = 0.56
-step = 0.016666668
+[sub_resource type="Animation" id="Animation_o714l"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Bell:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.55),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"Ring", &"default"]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.55),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"StopThatRinging"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_gbkgx"]
-resource_name = "Bell Icon Idle"
-length = 0.1
-step = 0.016666668
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Bell:animation")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(314.99188, 59.292595)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"default"]
+"values": [&"V2 Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bell:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Ring"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrjjf"]

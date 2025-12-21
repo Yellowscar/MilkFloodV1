@@ -23,6 +23,8 @@ var IsRootBeerButtonPressed = false
 var IsBeerButtonPressed = false
 var IsDrinkMilkButtonPressed = false
 
+var MugCoolDown = 0
+
 # Drink Bar Variables
 @onready var BestMilkBar = %BestMilkBar
 @onready var DrinkMilkBar = %DrinkMilkBar
@@ -113,11 +115,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#var BestMilkBarValue = BestMilkBar.value
-	#var DrinkMilkBarValue = DrinkMilkBar.value
-	#var BeerBarValue = BeerBar.value
-	#var RootBeerBarValue = RootBeerBar.value
-	#var WaterBarValue =  WaterBar.value
+	
+	if MugCoolDown > 0:
+		MugCoolDown -= 1 * delta
+	else:
+		MugCoolDown = 0
 	
 	#handle drink buttons and BestMilk button
 	if IsWaterButtonPressed == true and PlayerClimaxing == false: 
@@ -134,7 +136,7 @@ func _process(delta: float) -> void:
 		BestMilk += 40 * delta
 		Stimulation += 25 * delta * StimulationSensitivity
 		PlayerMilk -= 15*delta
-		OrderLeeway += 20*delta
+		OrderLeeway += 10*delta
 	
 	#handle stimulation and handle climax
 	%Stimbar.value = Stimulation
@@ -289,11 +291,13 @@ func _on_bell_button_button_down() -> void:
 		%"ProtoScene Animation Player".play("Bell Icon Ring")
 
 func StopThatRinging() -> void:
-	%"ProtoScene Animation Player".play("Bell Icon idle")
+	%"ProtoScene Animation Player".play("Bell Icon Idle")
 
 
 func _on_mug_button_button_down() -> void:
-	if PlayerClimaxing == false:
+	if PlayerClimaxing == false and MugCoolDown == 0:
+		print("global variable changed")
+		
 		if Water > TrueOrderWater - OrderLeeway and Water < TrueOrderWater + OrderLeeway:
 			IsWaterRight = true
 		
@@ -332,6 +336,9 @@ func _on_mug_button_button_down() -> void:
 		TrueOrderBeer = OrderBeer / OrderSum * OrderSize
 		TrueOrderRootBeer = OrderRootBeer / OrderSum * OrderSize
 		TrueOrderWater =  OrderWater / OrderSum * OrderSize
+		
+		GlobalNode.DrinkHasBeenServedBool = true
+		MugCoolDown = 1
 
 
 func _on_drink_it_button_button_down() -> void:
