@@ -138,11 +138,20 @@ func _process(delta: float) -> void:
 		PlayerMilk -= 15*delta
 		OrderLeeway += 10*delta
 	
+	if PlayerMilk < 1 and IsBestMilkButtonPressed == true:
+		Stimulation += 60 * delta
+	
+	if PlayerMilk > 49:
+		Stimulation += 10 * delta
+	
+	if PlayerMilk > 99:
+		Stimulation += 30 * delta
+	
 	#handle stimulation and handle climax
 	%Stimbar.value = Stimulation
 
 	if PlayerStimulating == true and PlayerClimaxing == false:
-		Stimulation += 60 * delta * StimulationSensitivity
+		Stimulation -= 60 * delta
 
 	Stimulation -= 5 * delta
 
@@ -222,6 +231,7 @@ func _process(delta: float) -> void:
 		Water = 100
 	if Water < 0:
 		Water = 0
+
 	
 	var BoobStage = 1
 	
