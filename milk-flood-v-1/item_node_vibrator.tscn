@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp7gm4wqsgt57"]
+[gd_scene load_steps=5 format=3 uid="uid://bp7gm4wqsgt57"]
 
 [ext_resource type="Script" uid="uid://ctv8gxer02423" path="res://Yellow Resources/Scripts/item_node_vibrator.gd" id="1_08vfk"]
-[ext_resource type="Texture2D" uid="uid://frb86l0f0nq3" path="res://Yellow Resources/Player and UI Sprites/Heart Icon.png" id="2_6x7fj"]
+[ext_resource type="Texture2D" uid="uid://c3pmq40r555wo" path="res://Yellow Resources/ItemIcons/Vibrator1.png" id="2_6x7fj"]
+[ext_resource type="Texture2D" uid="uid://osmxd6i48u7t" path="res://Yellow Resources/ItemIcons/Vibrator2.png" id="3_xxtu0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxtu0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6x7fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xxtu0")
 }],
 "loop": true,
 "name": &"default",
@@ -19,6 +23,8 @@ script = ExtResource("1_08vfk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxtu0")
+autoplay = "default"
+frame_progress = 0.21791404
 
 [node name="Button" type="Button" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)

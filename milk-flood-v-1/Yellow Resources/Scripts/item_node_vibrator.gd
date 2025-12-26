@@ -14,6 +14,4 @@ func _process(delta: float) -> void:
 func _on_button_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
 		GlobalNode.ItemVibrator = true
-	
-	if toggled_on == false:
-		GlobalNode.ItemVibrator = false
+		queue_free()

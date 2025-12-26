@@ -89,12 +89,12 @@ var IsBeerRight = false
 @export var BellModifier: float = 1
 @onready var PlayerMilkBar = $PlayerMilkBar
 
+#Score variable
+var Score = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%"ProtoScene Animation Player".play("Bell Icon Ring")
-	
-	
 	OrderLeeway = 8
 	
 	OrderMilk = randf_range(0, 100) 
@@ -109,6 +109,9 @@ func _ready() -> void:
 	TrueOrderRootBeer = OrderRootBeer / OrderSum * OrderSize
 	TrueOrderWater =  OrderWater / OrderSum * OrderSize
 	
+	%"ProtoScene Animation Player".play("Bell Icon Ring")
+	await get_tree().create_timer(0.55).timeout
+	%"ProtoScene Animation Player".play("Bell Icon Idle")
 
 
 
@@ -262,7 +265,9 @@ func _process(delta: float) -> void:
 	%BoobManager.scale.y = BoobStage + ((PlayerMilk) / 40) + GlobalNode.ItemBoobVariable
 	
 	# Handle prototext
-	ProtoText.text = "Drinks; 
+	ProtoText.text = "Score: " + str(Score) + "
+	
+	Drinks; 
 	BestMilk " + str(int(BestMilk)) + ", Milk " + str(int(Milk)) + ", Beer" + str(int(Beer)) + ", RootBeer " + str(int(RootBeer)) + ", Water" + str(int(Water)) + "                 
 	
 	Order; 
@@ -309,15 +314,11 @@ func _on_bell_button_button_down() -> void:
 		Stimulation += 40
 		
 		%"ProtoScene Animation Player".play("Bell Icon Ring")
-
-func StopThatRinging() -> void:
-	%"ProtoScene Animation Player".play("Bell Icon Idle")
-
+		await get_tree().create_timer(0.55).timeout
+		%"ProtoScene Animation Player".play("Bell Icon Idle")
 
 func _on_mug_button_button_down() -> void:
 	if PlayerClimaxing == false and MugCoolDown == 0:
-		print("global variable changed")
-		
 		if Water > TrueOrderWater - OrderLeeway and Water < TrueOrderWater + OrderLeeway:
 			IsWaterRight = true
 		
@@ -334,8 +335,24 @@ func _on_mug_button_button_down() -> void:
 		
 		if IsWaterRight == true and IsRootBeerRight == true and IsBeerRight == true and IsMilkRight == true:
 			PlayerSuccess += 1
+			Score += 50 + (GlobalNode.ItemBoobVariable * 50)
+			
+			if GlobalNode.ItemVibrator == true:
+				Score += 20
+			if GlobalNode.ItemMilkPlus == true:
+				Score += 20
+			if GlobalNode.ItemHypnoWatch == true:
+				Score += 20
+				Stimulation += 20
+
 		else: 
 			PlayerFailure += 1
+			Score -= 50
+			
+			if GlobalNode.ItemHypnoWatch == true:
+				Stimulation -= 20
+		
+		print(Score)
 		
 		BestMilk = 0
 		Water = 0 

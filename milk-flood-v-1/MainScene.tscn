@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cydq6ey03qufv"]
+[gd_scene load_steps=11 format=3 uid="uid://cydq6ey03qufv"]
 
 [ext_resource type="Script" uid="uid://du3nrn7wp6wa0" path="res://Yellow Resources/Scripts/EndlessMode.gd" id="1_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://ur86wdo5wrqq" path="res://BackgroundScene.tscn" id="1_x4av3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cay3cb0gbnbj2" path="res://item_boob_maxer.tscn" id="7_5crlr"]
 [ext_resource type="PackedScene" uid="uid://dsv2f3wm765b4" path="res://item_boob_shrinker.tscn" id="8_hbc2u"]
 [ext_resource type="PackedScene" uid="uid://d0cv4xa0gfuym" path="res://item_node_milk+++.tscn" id="9_torvr"]
+[ext_resource type="PackedScene" uid="uid://buqdafbfdgmhq" path="res://hypno_watch.tscn" id="10_8xkvn"]
 
 [node name="Endless Mode Node" type="Node2D"]
 script = ExtResource("1_rf2cd")
@@ -45,3 +46,6 @@ position = Vector2(300, 1292)
 
 [node name="ItemNode Milk+++" parent="." instance=ExtResource("9_torvr")]
 position = Vector2(1728, 1284)
+
+[node name="HypnoWatch" parent="." instance=ExtResource("10_8xkvn")]
+position = Vector2(1704, 1579)

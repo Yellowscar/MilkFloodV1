@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cay3cb0gbnbj2"]
 
 [ext_resource type="Script" uid="uid://c2ns2n5fs4xq4" path="res://Yellow Resources/Scripts/item_boob_maxer.gd" id="1_h7mjh"]
-[ext_resource type="Texture2D" uid="uid://frb86l0f0nq3" path="res://Yellow Resources/Player and UI Sprites/Heart Icon.png" id="2_ucv3f"]
+[ext_resource type="Texture2D" uid="uid://dma20d67l3lqn" path="res://Yellow Resources/ItemIcons/BustPlus Vial.png" id="2_h7mjh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1p7fm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ucv3f")
+"texture": ExtResource("2_h7mjh")
 }],
 "loop": true,
 "name": &"default",

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0cv4xa0gfuym"]
 
 [ext_resource type="Script" uid="uid://c474h6k3g1cmu" path="res://item_node_Milk+++.gd" id="1_p4ep1"]
-[ext_resource type="Texture2D" uid="uid://bwhmu8wdfvhmt" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V20004.png" id="2_p4ep1"]
+[ext_resource type="Texture2D" uid="uid://csl1tpk3t7gpb" path="res://Yellow Resources/ItemIcons/LactAid.png" id="2_p4ep1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxtu0"]
 animations = [{

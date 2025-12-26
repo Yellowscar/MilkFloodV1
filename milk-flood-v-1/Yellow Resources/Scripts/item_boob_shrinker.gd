@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
-	GlobalNode.ItemBoobVariable -= 0.2
+	GlobalNode.ItemBoobVariable = 0

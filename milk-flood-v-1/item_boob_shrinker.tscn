@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsv2f3wm765b4"]
 
 [ext_resource type="Script" uid="uid://bcekqe2l428sp" path="res://Yellow Resources/Scripts/item_boob_shrinker.gd" id="1_bguhr"]
-[ext_resource type="Texture2D" uid="uid://frb86l0f0nq3" path="res://Yellow Resources/Player and UI Sprites/Heart Icon.png" id="2_ooorq"]
+[ext_resource type="Texture2D" uid="uid://duu6ieo3lhcbn" path="res://Yellow Resources/ItemIcons/BustShrink Vial.png" id="2_bguhr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1p7fm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ooorq")
+"texture": ExtResource("2_bguhr")
 }],
 "loop": true,
 "name": &"default",

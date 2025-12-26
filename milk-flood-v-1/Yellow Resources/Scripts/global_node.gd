@@ -6,7 +6,7 @@ var DrinkHasBeenServedBool = false
 #Variables for items
 var ItemVibrator = false
 var ItemMilkPlus = false
-var ItemThree = false
+var ItemHypnoWatch = false
 var ItemFour = false
 
 var ItemBoobVariable: float = 0
