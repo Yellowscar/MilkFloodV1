@@ -116,6 +116,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	if GlobalNode.ItemVibrator == true and PlayerClimaxing == false:
+		Stimulation += 10 * delta
+	
+	
 	if MugCoolDown > 0:
 		MugCoolDown -= 1 * delta
 	else:
@@ -138,13 +142,13 @@ func _process(delta: float) -> void:
 		PlayerMilk -= 15*delta
 		OrderLeeway += 10*delta
 	
-	if PlayerMilk < 1 and IsBestMilkButtonPressed == true:
+	if PlayerMilk < 1 and IsBestMilkButtonPressed == true and PlayerClimaxing == false:
 		Stimulation += 60 * delta
 	
-	if PlayerMilk > 49:
+	if PlayerMilk > 49  and PlayerClimaxing == false:
 		Stimulation += 10 * delta
 	
-	if PlayerMilk > 99:
+	if PlayerMilk > 99  and PlayerClimaxing == false:
 		Stimulation += 30 * delta
 	
 	#handle stimulation and handle climax
@@ -247,11 +251,15 @@ func _process(delta: float) -> void:
 #	if PlayerMilk > 90:
 #		BoobStage = 1.6
 	
+	if GlobalNode.ItemMilkPlus == true:
+		PlayerMilk += 1.5 * delta * BellModifier
 	PlayerMilk += 1.5 * delta * BellModifier
 	$PlayerMilkBar.value = PlayerMilk
 	
-	%BoobManager.scale.x = BoobStage + (PlayerMilk / 30)
-	%BoobManager.scale.y = BoobStage + ((PlayerMilk) / 40)
+	
+	
+	%BoobManager.scale.x = BoobStage + (PlayerMilk / 30) + GlobalNode.ItemBoobVariable
+	%BoobManager.scale.y = BoobStage + ((PlayerMilk) / 40) + GlobalNode.ItemBoobVariable
 	
 	# Handle prototext
 	ProtoText.text = "Drinks; 
@@ -298,6 +306,8 @@ func _on_bell_button_button_down() -> void:
 	if PlayerClimaxing == false:
 		PlayerMilk += 20
 		BellModifier += 0.10
+		Stimulation += 40
+		
 		%"ProtoScene Animation Player".play("Bell Icon Ring")
 
 func StopThatRinging() -> void:

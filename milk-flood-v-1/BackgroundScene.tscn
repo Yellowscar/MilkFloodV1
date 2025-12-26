@@ -7,7 +7,3 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1016, 98)
 texture = ExtResource("1_ouy2j")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1016, 564)
-zoom = Vector2(0.57, 0.57)

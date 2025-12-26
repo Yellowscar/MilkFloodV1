@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0cv4xa0gfuym"]
+
+[ext_resource type="Script" uid="uid://c474h6k3g1cmu" path="res://item_node_Milk+++.gd" id="1_p4ep1"]
+[ext_resource type="Texture2D" uid="uid://bwhmu8wdfvhmt" path="res://Yellow Resources/Player and UI Sprites/Cow Icon V20004.png" id="2_p4ep1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxtu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p4ep1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemNode Milk+++" type="Node2D"]
+script = ExtResource("1_p4ep1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xxtu0")
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 75.0
+offset_top = 66.0
+offset_right = 83.0
+offset_bottom = 74.0
+scale = Vector2(-18.922136, -16.78799)
+toggle_mode = true
+
+[connection signal="toggled" from="AnimatedSprite2D/Button" to="." method="_on_button_toggled"]

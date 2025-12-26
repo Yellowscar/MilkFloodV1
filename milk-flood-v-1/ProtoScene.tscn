@@ -587,7 +587,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BoobManager" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
-position = Vector2(695, 885.0005)
+position = Vector2(717.00006, 885.0005)
 scale = Vector2(1.0793928, 1.0793928)
 script = ExtResource("21_8q7j2")
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhh4ksx8qqxx4"]
 
-[ext_resource type="Script" uid="uid://xq7um0ikw1qh" path="res://customer_dummy.gd" id="1_k47o6"]
+[ext_resource type="Script" uid="uid://xq7um0ikw1qh" path="res://Yellow Resources/Scripts/customer_dummy.gd" id="1_k47o6"]
 [ext_resource type="Texture2D" uid="uid://dwwa04yb26plo" path="res://Yellow Resources/Customer Sprites/MrDummySprite Milkflood.png" id="1_o0dwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k47o6"]

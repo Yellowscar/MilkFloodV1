@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp7gm4wqsgt57"]
+
+[ext_resource type="Script" uid="uid://ctv8gxer02423" path="res://Yellow Resources/Scripts/item_node_vibrator.gd" id="1_08vfk"]
+[ext_resource type="Texture2D" uid="uid://frb86l0f0nq3" path="res://Yellow Resources/Player and UI Sprites/Heart Icon.png" id="2_6x7fj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxtu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6x7fj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemNode Vibrator" type="Node2D"]
+script = ExtResource("1_08vfk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xxtu0")
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 75.0
+offset_top = 66.0
+offset_right = 83.0
+offset_bottom = 74.0
+scale = Vector2(-18.922136, -16.78799)
+toggle_mode = true
+
+[connection signal="button_down" from="AnimatedSprite2D/Button" to="." method="_on_button_button_down"]
+[connection signal="toggled" from="AnimatedSprite2D/Button" to="." method="_on_button_toggled"]

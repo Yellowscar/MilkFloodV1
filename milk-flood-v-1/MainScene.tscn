@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cydq6ey03qufv"]
+[gd_scene load_steps=10 format=3 uid="uid://cydq6ey03qufv"]
 
+[ext_resource type="Script" uid="uid://du3nrn7wp6wa0" path="res://Yellow Resources/Scripts/EndlessMode.gd" id="1_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://ur86wdo5wrqq" path="res://BackgroundScene.tscn" id="1_x4av3"]
 [ext_resource type="PackedScene" uid="uid://3y3xrgxifxd3" path="res://ProtoScene.tscn" id="2_rpqi1"]
-[ext_resource type="Script" uid="uid://d3tq7mdanua87" path="res://customer_spawn_point.gd" id="4_a814b"]
+[ext_resource type="Script" uid="uid://d3tq7mdanua87" path="res://Yellow Resources/Scripts/customer_spawn_point.gd" id="4_a814b"]
 [ext_resource type="PackedScene" uid="uid://bai3vq18nruby" path="res://ForeGround.tscn" id="4_rf2cd"]
+[ext_resource type="PackedScene" uid="uid://bp7gm4wqsgt57" path="res://item_node_vibrator.tscn" id="6_a814b"]
+[ext_resource type="PackedScene" uid="uid://cay3cb0gbnbj2" path="res://item_boob_maxer.tscn" id="7_5crlr"]
+[ext_resource type="PackedScene" uid="uid://dsv2f3wm765b4" path="res://item_boob_shrinker.tscn" id="8_hbc2u"]
+[ext_resource type="PackedScene" uid="uid://d0cv4xa0gfuym" path="res://item_node_milk+++.tscn" id="9_torvr"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Endless Mode Node" type="Node2D"]
+script = ExtResource("1_rf2cd")
 
 [node name="BarScene" parent="." instance=ExtResource("2_rpqi1")]
 position = Vector2(499, 294)
@@ -18,3 +24,24 @@ position = Vector2(-512, 365)
 script = ExtResource("4_a814b")
 
 [node name="ForGround" parent="." instance=ExtResource("4_rf2cd")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(989.00006, 509.00006)
+scale = Vector2(2.7134504, 2.7134504)
+zoom = Vector2(0.645, 0.645)
+limit_enabled = false
+limit_top = -766
+limit_bottom = 1885
+limit_smoothed = true
+
+[node name="Item BoobMaxer" parent="." instance=ExtResource("7_5crlr")]
+position = Vector2(767, 1301)
+
+[node name="Item BoobShrinker" parent="." instance=ExtResource("8_hbc2u")]
+position = Vector2(1227, 1295)
+
+[node name="ItemNode Vibrator" parent="." instance=ExtResource("6_a814b")]
+position = Vector2(300, 1292)
+
+[node name="ItemNode Milk+++" parent="." instance=ExtResource("9_torvr")]
+position = Vector2(1728, 1284)
